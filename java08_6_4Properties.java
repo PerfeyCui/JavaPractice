@@ -13,12 +13,18 @@ class java08_6_4Properties{
         System.out.println(prop);
         //prop.list(System.out::print);
         prop.store(new FileOutputStream("cui.ini"),"property list plz action!");
+        prop.store(new FileOutputStream("cui.xml"),"property list plz action!");
         
         Properties propL = new Properties();
         propL.load(new FileInputStream("cui.ini"));
         System.out.println("===Save property file & load them print again===");
         propL.setProperty("Task","WritePaper");
         System.out.println(propL);
+        
+        System.out.println("===Save property xml file & load them print again===");
+        Properties propLXML = new Properties();
+        propLXML.load(new FileInputStream("cui.xml"));
+        System.out.println(propLXML);
         
     }
 }
