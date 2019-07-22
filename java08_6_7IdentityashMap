@@ -1,0 +1,17 @@
+import java.util.*;
+import java.io.*;
+
+
+class java08_6_7IdentityashMap{
+    public static void main(String[] args) throws java.lang.Exception{
+        // 继上回的WeakHashMap可以看到，new String 的匿名内部类，是没有人引用的 ref Cnt=0；
+        // 容易被垃圾站自动回收； 这回我们再用string 来看看 不同的new string 类不一样； 同样的常量字符串 都是一样的
+        IdentityHashMap ihm = new IdentityHashMap();
+        ihm.put(new String("Peng"),22);
+        ihm.put(new String("Peng"),30);
+        ihm.put("Fei", 25);
+        ihm.put("Fei",85);
+        System.out.println(ihm);
+        //Fei的两个条目只能打印后一个更新的，因为IdentityHashMap的key严格要求单一的
+        }
+}
